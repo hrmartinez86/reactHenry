@@ -79,14 +79,6 @@ services:
     networks:
       - reacthenrry-network
 
-  certbot:
-    image: certbot/certbot
-    container_name: reacthenrry-certbot
-    volumes:
-      - certbot_www:/var/www/certbot
-      - certbot_conf:/etc/letsencrypt
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --quiet; sleep 12h & wait $${!}; done'"
-
 volumes:
   mysql_data:
   back_node_modules:
